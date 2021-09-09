@@ -1,19 +1,22 @@
-import firebase from 'firebase/app'
-import "firebase/auth";
-import "firebase/firestore";
+import firebase from 'firebase/app';
+
+import 'firebase/auth';
+import 'firebase/database';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyA1-qknH0kk4w7I7QdFyRqZxaBvfhW1mus",
-    authDomain: "letmeask-c2f65.firebaseapp.com",
-    databaseURL: "https://letmeask-c2f65-default-rtdb.firebaseio.com",
-    projectId: "letmeask-c2f65",
-    storageBucket: "letmeask-c2f65.appspot.com",
-    messagingSenderId: "398427206972",
-    appId: "1:398427206972:web:87421f004447f96c749a39"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER,
+    appId: process.env.REACT_APP_APP_ID
   };
 
 firebase.initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const database = firebase.database();
+const auth = firebase.auth();
+const database = firebase.database();
+
+export { firebase, auth, database }
